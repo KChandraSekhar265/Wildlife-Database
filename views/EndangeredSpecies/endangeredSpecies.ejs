@@ -1,0 +1,100 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h1>Endangered Species</h1>
+
+    <table class="es-table">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Info</th>
+        </tr>
+        <% for (let es of endangeredSpecies) { %>
+        <tr>
+            <td>
+                <img 
+                    src="<%= es.image %>" 
+                    alt="" 
+                    class="es-image"
+                >
+            </td>
+            <td><%= es.name %></td>
+            <% if (es.animal_id) { %>
+            <td>
+                <form action="/wildlife/Animals/<%= es.animal_id %>" method="get">
+                    <button class="info-button">Info</button>
+                </form>
+            </td>
+            <% } else { %>
+            <td>
+                <form action="/wildlife/Birds/<%= es.bird_id %>" method="get">
+                    <button class="info-button">Info</button>
+                </form>
+            </td>
+            <% } %>
+        </tr>
+        <% } %>
+    </table>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px;
+            color: #333;
+        }
+
+        .es-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .es-table th, .es-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .es-table th {
+            background-color: #dc3545;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .es-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .es-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .info-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+
+        .info-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</body>

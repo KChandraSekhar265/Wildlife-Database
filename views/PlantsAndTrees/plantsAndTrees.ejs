@@ -1,0 +1,99 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h1>Plants and Trees</h1>
+
+    <table class="pt-table">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Info</th>
+        </tr>
+        <% for (let pt of pts) { %>
+        <tr>
+            <td><img src="<%= pt.image %>" alt="" class="pt-image"></td>
+            <td><%= pt.name %></td>
+            <td>
+                <form action="/wildlife/Plants-and-Trees/<%= pt._id %>" method="get">
+                    <button class="info-button">Info</button>
+                </form>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    <%if(currUser){%>
+    <div class="add-pt">
+        <form action="/wildlife/Plants-and-Trees/new" method="get">
+            <button class="add-button">Add New Plant</button>
+        </form>
+    </div>
+    <% } %>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px;
+            color: #333;
+        }
+
+        .pt-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .pt-table th, .pt-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .pt-table th {
+            background-color: #28a745;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .pt-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .pt-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .info-button, .add-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+
+        .info-button:hover, .add-button:hover {
+            background-color: #0056b3;
+        }
+
+        .add-pt {
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+        }
+    </style>
+</body>

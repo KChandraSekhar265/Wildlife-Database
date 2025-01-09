@@ -1,0 +1,107 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body style="background-color: #f1f8e9;">
+    <div class="container mt-5">
+        <div class="card shadow-sm border-light" style="max-width: 700px; margin: auto;">
+            <div class="card-header bg-primary text-white">
+                <h4>Edit Animal</h4>
+            </div>
+            <div class="card-body">
+                <form class="needs-validation" method="post" action="/wildlife/Animals/<%=animal._id%>?_method=PUT" novalidate>
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="animal[name]" class="form-control" value="<%=animal.name%>" required>
+                        <div class="invalid-feedback">Please enter the animal's name.</div>
+                    </div>
+
+                    <!-- Scientific Name -->
+                    <div class="mb-3">
+                        <label for="scientificName" class="form-label">Scientific Name</label>
+                        <input type="text" id="scientificName" name="animal[scientific_name]" class="form-control" value="<%=animal.scientific_name%>" required>
+                        <div class="invalid-feedback">Please enter the scientific name.</div>
+                    </div>
+
+                    <!-- Category -->
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <input type="text" id="category" name="animal[category]" class="form-control" value="<%=animal.category%>" required>
+                        <div class="invalid-feedback">Please specify the category.</div>
+                    </div>
+
+                    <!-- Diet -->
+                    <div class="mb-3">
+                        <label for="diet" class="form-label">Diet</label>
+                        <input type="text" id="diet" name="animal[diet]" class="form-control" value="<%=animal.diet%>" required>
+                        <div class="invalid-feedback">Please specify the diet.</div>
+                    </div>
+
+                    <!-- Is Extinct -->
+                    <div class="mb-3">
+                        <label class="form-label">Is Extinct</label>
+                        <div class="form-check">
+                            <input type="radio" id="extinctYes" name="animal[extinct]" value="true" class="form-check-input" required>
+                            <label for="extinctYes" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="extinctNo" name="animal[extinct]" value="false" class="form-check-input" required>
+                            <label for="extinctNo" class="form-check-label">No</label>
+                        </div>
+                        <div class="invalid-feedback">Please select if the animal is extinct.</div>
+                    </div>
+
+                    <!-- Is Endangered -->
+                    <div class="mb-3">
+                        <label class="form-label">Is Endangered</label>
+                        <div class="form-check">
+                            <input type="radio" id="endangeredYes" name="animal[endangered]" value="true" class="form-check-input" required>
+                            <label for="endangeredYes" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="endangeredNo" name="animal[endangered]" value="false" class="form-check-input" required>
+                            <label for="endangeredNo" class="form-check-label">No</label>
+                        </div>
+                        <div class="invalid-feedback">Please select if the animal is endangered.</div>
+                    </div>
+
+                    <!-- Image Link -->
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Link</label>
+                        <input type="text" id="image" name="animal[image]" class="form-control" value="<%=animal.image%>" required>
+                        <div class="invalid-feedback">Please provide a valid image link.</div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea id="description" name="animal[description]" class="form-control"  rows="5" required><%=animal.description%></textarea>
+                        <div class="invalid-feedback">Please provide a description.</div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success btn-sm w-30">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (For form validation handling) -->
+    <script>
+        (function () {
+            'use strict'
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation')
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            }, false)
+        })()
+    </script>
+</body>

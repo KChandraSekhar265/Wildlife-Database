@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <!-- Logo and Branding -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="/assets/logo.jpg" width="80" height="60" class="d-inline-block align-text-top me-2">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Navbar Links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/wildlife">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/wildlife/National-Parks">National Parks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <!-- Centered Search Bar -->
+            <div class="d-flex mx-auto flex-grow-1 justify-content-center">
+                <form class="d-flex" role="search" style="max-width: 500px; width: 100%; margin-right: 150px;" >
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <!-- Sign Up and Login Buttons -->
+            <div class="d-flex" style="margin-right: 50px;">
+                <%if(!currUser){%>
+                    <a href="/signup" class="btn btn-outline-light me-4">Sign Up</a>
+                    <a href="/login" class="btn btn-success">Login</a>
+                <% }%>
+                <%if(currUser){ %>
+                    <a href="/logout" class="btn btn-outline-light me-4">Logout</a>
+                <%} %>
+            </div>
+        </div>
+    </div>
+</nav>

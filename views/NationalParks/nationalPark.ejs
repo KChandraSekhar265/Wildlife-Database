@@ -1,0 +1,114 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div class="np-details-container">
+        <div class="np-header">
+            <h2 class="np-name"><%= np.name %></h2>
+            <p class="np-area"><b>Area:</b> <%= np.area %></p>
+            <p class="np-description"><b>Description:</b> <%= np.description %></p>
+        </div>
+
+        <div class="np-lists">
+            <div class="np-section">
+                <h3>List of Animals</h3>
+                <ul class="np-list">
+                    <% for (let a of animals) { %>
+                        <li><%= a %></li>
+                    <% } %>
+                </ul>
+            </div>
+
+            <div class="np-section">
+                <h3>List of Birds</h3>
+                <ul class="np-list">
+                    <% for (let b of birds) { %>
+                        <li><%= b %></li>
+                    <% } %>
+                </ul>
+            </div>
+
+            <div class="np-section">
+                <h3>List of Plants and Trees</h3>
+                <ul class="np-list">
+                    <% for (let pt of plantAndTrees) { %>
+                        <li><%= pt %></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+        }
+
+        .np-details-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .np-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .np-name {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .np-area, .np-description {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .np-lists {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .np-section {
+            flex: 1 1 calc(33% - 20px);
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .np-section h3 {
+            font-size: 1.5rem;
+            color: #34495e;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        .np-list {
+            margin: 0;
+            padding-left: 20px;
+            list-style-type: disc;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .np-list li {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .np-section {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</body>

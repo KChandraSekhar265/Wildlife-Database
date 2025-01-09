@@ -1,0 +1,105 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body style="background-color: #f1f8e9;">
+    <div class="container mt-5">
+        <div class="card shadow-sm border-light" style="max-width: 700px; margin: auto;">
+            <div class="card-header bg-primary text-white">
+                <h4>Add New Plant</h4>
+            </div>
+            <div class="card-body">
+                <form action="/wildlife/Plants-and-Trees" method="post" class="needs-validation" novalidate>
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="plant[name]" class="form-control" placeholder="Enter Name" required>
+                        <div class="invalid-feedback">Please enter the plant's name.</div>
+                    </div>
+
+                    <!-- Scientific Name -->
+                    <div class="mb-3">
+                        <label for="scientificName" class="form-label">Scientific Name</label>
+                        <input type="text" id="scientificName" name="plant[scientific_name]" class="form-control" placeholder="Enter Scientific Name" required>
+                        <div class="invalid-feedback">Please enter the scientific name.</div>
+                    </div>
+
+                    <!-- Type -->
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type</label>
+                        <input type="text" id="type" name="plant[type]" class="form-control" placeholder="Enter Type" required>
+                        <div class="invalid-feedback">Please specify the type.</div>
+                    </div>
+
+                    <!-- Uses -->
+                    <div class="mb-3">
+                        <label for="uses" class="form-label">Uses</label>
+                        <input type="text" id="uses" name="plant[uses]" class="form-control" placeholder="Enter Uses" required>
+                        <div class="invalid-feedback">Please specify the uses.</div>
+                    </div>
+
+                    <!-- Image Link -->
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Link</label>
+                        <input type="text" id="image" name="plant[image]" class="form-control" placeholder="Enter Image URL/link" required>
+                        <div class="invalid-feedback">Please provide a valid image link.</div>
+                    </div>
+
+                    <!-- National Park -->
+                    <div class="mb-3">
+                        <label class="form-label">Select National Park</label>
+                        <div class="form-check">
+                            <input type="radio" id="bandipur" name="plant[national_park]" value="67584f7a2bf6b923a7ee8f6f" class="form-check-input" required>
+                            <label for="bandipur" class="form-check-label">Bandipur National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="kudremukh" name="plant[national_park]" value="67584fde645f924032b817d8" class="form-check-input" required>
+                            <label for="kudremukh" class="form-check-label">Kudremukh National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="nagarhole" name="plant[national_park]" value="675b16c586888ba7c9344424" class="form-check-input" required>
+                            <label for="nagarhole" class="form-check-label">Nagarhole National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="bannerghatta" name="plant[national_park]" value="675b16c586888ba7c9344426" class="form-check-input" required>
+                            <label for="bannerghatta" class="form-check-label">Bannerghatta National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="anshi" name="plant[national_park]" value="675b217fde556c61e1ae204b" class="form-check-input" required>
+                            <label for="anshi" class="form-check-label">Anshi National Park</label>
+                        </div>
+                        <div class="invalid-feedback">Please select a national park.</div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea id="description" name="plant[description]" class="form-control" placeholder="Enter description" rows="5" required></textarea>
+                        <div class="invalid-feedback">Please provide a description.</div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success btn-sm w-30">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (For form validation handling) -->
+    <script>
+        (function () {
+            'use strict'
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation')
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            }, false)
+        })()
+    </script>
+</body>

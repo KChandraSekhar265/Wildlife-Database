@@ -1,0 +1,98 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h1>Extinct Species</h1>
+
+    <table class="extinct-table">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Info</th>
+        </tr>
+        <% for (let es of extinctSpecies) { %>
+        <tr>
+            <td>
+                <img 
+                    src="<%= es.image %>" 
+                    alt="" 
+                    class="extinct-image"
+                >
+            </td>
+            <td><%= es.name %></td>
+            <td>
+                <% if (es.animal_id) { %>
+                <form action="/wildlife/Animals/<%= es.animal_id %>" method="get">
+                    <button class="info-button">Info</button>
+                </form>
+                <% } else { %>
+                <form action="/wildlife/Birds/<%= es.bird_id %>" method="get">
+                    <button class="info-button">Info</button>
+                </form>
+                <% } %>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px;
+            color: #333;
+        }
+
+        .extinct-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .extinct-table th, .extinct-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .extinct-table th {
+            background-color: #6c757d;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .extinct-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .extinct-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .info-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 14px;
+        }
+
+        .info-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</body>

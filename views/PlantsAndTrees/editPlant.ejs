@@ -1,0 +1,79 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body style="background-color: #f1f8e9;">
+    <div class="container mt-5">
+        <div class="card shadow-sm border-light" style="max-width: 700px; margin: auto;">
+            <div class="card-header bg-primary text-white">
+                <h4>Edit New Plant</h4>
+            </div>
+            <div class="card-body">
+                <form action="/wildlife/Plants-and-Trees/<%=plant._id%>?_method=PUT" method="post" class="needs-validation" novalidate>
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="plant[name]" class="form-control" value="<%=plant.name%>" required>
+                        <div class="invalid-feedback">Please enter the plant's name.</div>
+                    </div>
+
+                    <!-- Scientific Name -->
+                    <div class="mb-3">
+                        <label for="scientificName" class="form-label">Scientific Name</label>
+                        <input type="text" id="scientificName" name="plant[scientific_name]" class="form-control" value="<%=plant.scientific_name%>" required>
+                        <div class="invalid-feedback">Please enter the scientific name.</div>
+                    </div>
+
+                    <!-- Type -->
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type</label>
+                        <input type="text" id="type" name="plant[type]" class="form-control" value="<%=plant.type%>" required>
+                        <div class="invalid-feedback">Please specify the type.</div>
+                    </div>
+
+                    <!-- Uses -->
+                    <div class="mb-3">
+                        <label for="uses" class="form-label">Uses</label>
+                        <input type="text" id="uses" name="plant[uses]" class="form-control" value="<%=plant.uses%>" required>
+                        <div class="invalid-feedback">Please specify the uses.</div>
+                    </div>
+
+                    <!-- Image Link -->
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Link</label>
+                        <input type="text" id="image" name="plant[image]" class="form-control" value="<%=plant.image%>" required>
+                        <div class="invalid-feedback">Please provide a valid image link.</div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea id="description" name="plant[description]" class="form-control" rows="5" required><%=plant.description%></textarea>
+                        <div class="invalid-feedback">Please provide a description.</div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success btn-sm w-30">Edit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (For form validation handling) -->
+    <script>
+        (function () {
+            'use strict'
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation')
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            }, false)
+        })()
+    </script>
+</body>

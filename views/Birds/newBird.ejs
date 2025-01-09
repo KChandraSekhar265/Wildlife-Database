@@ -1,0 +1,140 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body style="background-color: #f1f8e9;">
+    <div class="container mt-5">
+        <div class="card shadow-sm border-light" style="max-width: 700px; margin: auto;">
+            <div class="card-header bg-primary text-white">
+                <h4>Add New Bird</h4>
+            </div>
+            <div class="card-body">
+                <form action="/wildlife/Birds" method="post" class="needs-validation" novalidate>
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="bird[name]" class="form-control" placeholder="Enter Name" required>
+                        <div class="invalid-feedback">Please enter the bird's name.</div>
+                    </div>
+
+                    <!-- Scientific Name -->
+                    <div class="mb-3">
+                        <label for="scientificName" class="form-label">Scientific Name</label>
+                        <input type="text" id="scientificName" name="bird[scientific_name]" class="form-control" placeholder="Enter Scientific Name" required>
+                        <div class="invalid-feedback">Please enter the scientific name.</div>
+                    </div>
+
+                    <!-- Habitat -->
+                    <div class="mb-3">
+                        <label for="habitat" class="form-label">Habitat</label>
+                        <input type="text" id="habitat" name="bird[habitat]" class="form-control" placeholder="Enter Habitat" required>
+                        <div class="invalid-feedback">Please specify the habitat.</div>
+                    </div>
+
+                    <!-- Is Migratory -->
+                    <div class="mb-3">
+                        <label class="form-label">Is Migratory</label>
+                        <div class="form-check">
+                            <input type="radio" id="migratoryYes" name="bird[migratory]" value="true" class="form-check-input" required>
+                            <label for="migratoryYes" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="migratoryNo" name="bird[migratory]" value="false" class="form-check-input" required>
+                            <label for="migratoryNo" class="form-check-label">No</label>
+                        </div>
+                        <div class="invalid-feedback">Please select if the bird is migratory.</div>
+                    </div>
+
+                    <!-- Is Extinct -->
+                    <div class="mb-3">
+                        <label class="form-label">Is Extinct</label>
+                        <div class="form-check">
+                            <input type="radio" id="extinctYes" name="bird[extinct]" value="true" class="form-check-input" required>
+                            <label for="extinctYes" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="extinctNo" name="bird[extinct]" value="false" class="form-check-input" required>
+                            <label for="extinctNo" class="form-check-label">No</label>
+                        </div>
+                        <div class="invalid-feedback">Please select if the bird is extinct.</div>
+                    </div>
+
+                    <!-- Is Endangered -->
+                    <div class="mb-3">
+                        <label class="form-label">Is Endangered</label>
+                        <div class="form-check">
+                            <input type="radio" id="endangeredYes" name="bird[endangered]" value="true" class="form-check-input" required>
+                            <label for="endangeredYes" class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="endangeredNo" name="bird[endangered]" value="false" class="form-check-input" required>
+                            <label for="endangeredNo" class="form-check-label">No</label>
+                        </div>
+                        <div class="invalid-feedback">Please select if the bird is endangered.</div>
+                    </div>
+
+                    <!-- Image Link -->
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Link</label>
+                        <input type="text" id="image" name="bird[image]" class="form-control" placeholder="Enter Image URL/link" required>
+                        <div class="invalid-feedback">Please provide a valid image link.</div>
+                    </div>
+
+                    <!-- National Park -->
+                    <div class="mb-3">
+                        <label class="form-label">Select National Park</label>
+                        <div class="form-check">
+                            <input type="radio" id="bandipur" name="bird[national_park]" value="67584f7a2bf6b923a7ee8f6f" class="form-check-input" required>
+                            <label for="bandipur" class="form-check-label">Bandipur National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="kudremukh" name="bird[national_park]" value="67584fde645f924032b817d8" class="form-check-input" required>
+                            <label for="kudremukh" class="form-check-label">Kudremukh National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="nagarhole" name="bird[national_park]" value="675b16c586888ba7c9344424" class="form-check-input" required>
+                            <label for="nagarhole" class="form-check-label">Nagarhole National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="bannerghatta" name="bird[national_park]" value="675b16c586888ba7c9344426" class="form-check-input" required>
+                            <label for="bannerghatta" class="form-check-label">Bannerghatta National Park</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="anshi" name="bird[national_park]" value="675b217fde556c61e1ae204b" class="form-check-input" required>
+                            <label for="anshi" class="form-check-label">Anshi National Park</label>
+                        </div>
+                        <div class="invalid-feedback">Please select a national park.</div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea id="description" name="bird[description]" class="form-control" placeholder="Enter description" rows="5" required></textarea>
+                        <div class="invalid-feedback">Please provide a description.</div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success btn-sm w-30">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (For form validation handling) -->
+    <script>
+        (function () {
+            'use strict'
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation')
+                Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            }, false)
+        })()
+    </script>
+</body>

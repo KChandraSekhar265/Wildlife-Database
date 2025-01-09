@@ -1,0 +1,124 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div class="animal-details-container">
+        <div class="animal-image">
+            <img src="<%= animal.image %>" alt="<%= animal.name %> Image">
+        </div>
+        <div class="animal-details">
+            <h2 class="animal-name"><%= animal.name %></h2>
+            <p><b>Scientific Name:</b> <%= animal.scientific_name %></p>
+            <p><b>Category:</b> <%= animal.category %></p>
+            <p><b>Diet:</b> <%= animal.diet %></p>
+            <p><b>Description:</b> <%= animal.description %></p>
+            <p><b>Found in:</b></p>
+            <ul class="park-list">
+                <% for (let p of parks) { %>
+                    <li><%= p %></li>
+                <% } %>
+            </ul>
+        </div>
+        <%if(currUser){%>
+        <div class="actions">
+            <form method="post" action="/wildlife/Animals/<%= animal._id %>?_method=DELETE" class="delete-form">
+                <button class="delete-button">Delete</button>
+            </form>
+            <a href="/wildlife/Animals/<%= animal._id %>/edit">
+                <button class="edit-button">Edit</button>
+            </a>
+        </div>
+        <%}%>
+    </div>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+            color: #333;
+        }
+
+        .animal-details-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .animal-image img {
+            max-width: 100%;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .animal-details {
+            padding: 20px 30px;
+        }
+
+        .animal-details p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555; /* Scoped to .animal-details */
+        }
+
+        .animal-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+
+        .park-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .park-list li {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 30px;
+            background: #f1f1f1;
+        }
+
+        .delete-form {
+            display: inline;
+        }
+
+        .delete-button,
+        .edit-button {
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .delete-button {
+            background-color: #e53935;
+        }
+
+        .delete-button:hover {
+            background-color: #c62828;
+        }
+
+        .edit-button:hover {
+            background-color: #1565c0;
+        }
+    </style>
+</body>

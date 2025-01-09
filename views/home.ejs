@@ -1,0 +1,91 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Explore Wildlife Categories</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Animals Card -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/assets/animals.jpg" class="card-img-top" alt="Animals" style="height:220.650px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Animals</h5>
+                        <p class="card-text">Discover a wide variety of animals in their natural habitats.</p>
+                        <form action="/wildlife/Animals" method="get">
+                            <button class="btn btn-primary">Explore</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Birds Card -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/assets/birds.jpg" class="card-img-top" alt="Birds" style="height:220.650px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Birds</h5>
+                        <p class="card-text">Learn about fascinating bird species from around the world.</p>
+                        <form action="/wildlife/Birds" method="get">
+                            <button class="btn btn-primary">Explore</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plants and Trees Card -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/assets/trees.jpg" class="card-img-top" alt="Plants and Trees" style="height:220.650px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Plants and Trees</h5>
+                        <p class="card-text">Explore the beauty and diversity of flora.</p>
+                        <form action="/wildlife/Plants-and-Trees" method="get">
+                            <button class="btn btn-primary">Explore</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Endangered Species Card -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/assets/Endangered-Species-.webp" class="card-img-top" alt="Endangered Species" style="height:220.650px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Endangered Species</h5>
+                        <p class="card-text">Understand the challenges faced by endangered species.</p>
+                        <form action="/wildlife/Endangered-Species" method="get">
+                            <button class="btn btn-primary">Explore</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extinct Species Card -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/assets/extinct.jpg" class="card-img-top" alt="Extinct Species" style="height:220.650px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Extinct Species</h5>
+                        <p class="card-text">Learn about species that have disappeared from Earth.</p>
+                        <form action="/wildlife/Extinct-Species" method="get">
+                            <button class="btn btn-primary">Explore</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- National Parks Card -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="/assets/parks.jpg" class="card-img-top" alt="National Parks" style="height:220.650px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">National Parks</h5>
+                        <p class="card-text">Discover the most beautiful national parks in the region.</p>
+                        <form action="/wildlife/National-Parks" method="get">
+                            <button class="btn btn-primary">Explore</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
